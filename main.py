@@ -65,9 +65,9 @@ def getTemp(ville):
     reponseMeteo = requests.get(url_meteo, params=paramsMeteo)
     meteo = reponseMeteo.json()
 
-    affichage.config(text=f"La température à {ville} est de {meteo["current"]["temperature_2m"]}°C", fg="black", font=("Helvetica", 12, "bold"))
+    affichage.config(text=f"La température à {ville} est de {round(meteo["current"]["temperature_2m"])}°C", fg="black", font=("Helvetica", 12, "bold"))
     affichage.pack(pady=(30, 0))
-    print("Température :", meteo["current"]["temperature_2m"], "°C")
+    print("Température :", round(meteo["current"]["temperature_2m"]), "°C")
 
 
 
