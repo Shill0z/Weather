@@ -35,9 +35,14 @@ def getLongitudeLatitude(ville):
     reponse = requests.get(url, params=params)
     donnees = reponse.json()
     if not "results"in donnees or len(donnees["results"]) == 0:
-        affichage.config(text=f"{ville} n'existe pas..", fg="#741b1b", font=("Helvetica", 12, "bold"))
+        if ville == "":
+            affichage.config(text=f"Veuillez entrer une ville", fg="#741b1b", font=("Helvetica", 12, "bold"))
+            print(f"ERREUR : Entrez une ville..")
+        else :
+            affichage.config(text=f"{ville} n'existe pas..", fg="#741b1b", font=("Helvetica", 12, "bold"))
+            print(f"ERREUR : {ville} n'existe pas..")
+            
         affichage.pack(pady=(30, 0))
-        print(f"ERREUR : {ville} n'existe pas..")
         return
 
     latitude = donnees["results"][0]["latitude"]
