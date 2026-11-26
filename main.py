@@ -67,7 +67,7 @@ def getTemp(ville):
 
     affichage.config(text=f"La température à {ville} est de {round(meteo["current"]["temperature_2m"])}°C", fg="black", font=("Helvetica", 12, "bold"))
     affichage.pack(pady=(30, 0))
-    print("Température :", round(meteo["current"]["temperature_2m"]), "°C")
+    print("Température :", meteo["current"]["temperature_2m"], "°C")
 
 
 
